@@ -1,5 +1,6 @@
 <template>
 	<div class="main_page">
+		<!--顶部-->
 		<div class="main_header flex_star">
 			<img src="../../static/images/data_image_png;base….png" alt="" width="149"/>
 			<div class="flex_between">
@@ -8,11 +9,12 @@
 			</div>
 		</div>
 		<div class="flex_star slide_middle">
+			<!--左侧栏-->
 			<div class="slide">
 				<el-row class="tac">
 		  			<el-col :span="24">
 		    			<el-menu
-		      				default-active="2"
+		      				default-active="index"
 		      				class="el-menu-vertical-demo"
 		      				@open="handleOpen"
 		     				@close="handleClose"
@@ -60,51 +62,41 @@
 						header_title : "首页",
 						icon : shouye,
 						childer:[
-							{name : "概况",link:'index1'},
+							{name : "概况",link:'index'},
 						]
 					},
 					{
 						header_title : "产品",
 						icon : chanpin,
 						childer:[
-							{name : "产品管理",link:'index2'},
-							{name : "进货管理",link:'index3'},
-							{name : "多规格属性",link:'index4'},
+							{name : "产品管理",link:'product_manage'},
 						]
 					},
 					{
 						header_title : "订单",
 						icon : order,
 						childer:[
-							{name : "订单列表",link:'index5'},
-							{name : "我的订单",link:'index6'},
+							{name : "订单列表",link:'order_list'},
 						]
 					},
 					{
 						header_title : "数据",
 						icon : shuju,
 						childer:[
-							{name : "数据概况",link:'index7'},
-							{name : "访问量",link:'index8'},
-							{name : "成交金额",link:'index9'},
-							{name : "加入购物车",link:'index10'},
-							{name : "收藏",link:'index11'},
+							{name : "访问量",link:'page_view'},
 						]
 					},
 					{
 						header_title : "资产",
 						icon : zichan,
 						childer:[
-							{name : "我的钱款",link:'index12'},
-							{name : "钱款提现",link:'index13'},
-							{name : "交易账户",link:'index14'},
+							{name : "我的钱款",link:'my_money'},
 						]
 					},
 					{
 						header_title : "设置",
 						icon : setting,
 						childer:[
-							{name : "运费模板",link:'index15'},
 							{name : "企业资料",link:'company_info'},
 						]
 					},
@@ -129,7 +121,7 @@
 		height: 100%;
 		width: 100%;
 	}
-	.el-submenu .el-menu-item{
+	.main_page .el-submenu .el-menu-item{
 		min-width: 110px;
 		padding: 0;
 		padding-left: 20px!important;

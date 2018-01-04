@@ -86,16 +86,15 @@
         		this.imageUrl = URL.createObjectURL(file.raw);
       		},
       		beforeAvatarUpload(file) {
-		        const isJPG = file.type === 'image/jpeg' || 'image/png';
+		        const isImgType = file.type === 'image/jpeg' || 'image/png';
 		        const isLt2M = file.size / 1024 / 1024 < 2;
-		
-		        if (!isJPG) {
-		          this.$message.error('上传头像图片只能是 JPG 格式!');
+		        if (!isImgType) {
+		          this.$message.error('上传的图片只能是 JPG 格式 或者PNG格式!');
 		        }
 		        if (!isLt2M) {
-		          this.$message.error('上传头像图片大小不能超过 2MB!');
+		          this.$message.error('上传的图片大小不能超过 2MB!');
 		        }
-		        return isJPG && isLt2M;
+		        return isImgType && isLt2M;
 		    },
 		    successBtn(formName){
 		    	this.$refs[formName].validate((valid) => {
