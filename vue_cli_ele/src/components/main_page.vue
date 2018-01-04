@@ -14,7 +14,7 @@
 				<el-row class="tac">
 		  			<el-col :span="24">
 		    			<el-menu
-		      				default-active="index"
+		      				:default-active="nav_active"
 		      				class="el-menu-vertical-demo"
 		      				@open="handleOpen"
 		     				@close="handleClose"
@@ -57,6 +57,7 @@
 		name : "main_page" ,
 		data(){
 			return{
+				nav_active:"index",
 				leftSlide_data:[
 					{
 						header_title : "首页",
@@ -102,6 +103,10 @@
 					},
 				]
 			}
+		},
+		created(){
+			var that = this ;
+			that.nav_active = that.$route.matched[that.$route.matched.length-1].path.slice(1);
 		},
 		methods:{
 			handleOpen(key, keyPath) {
