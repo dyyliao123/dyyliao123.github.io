@@ -52,12 +52,13 @@
           			if (valid) {
             			if(that.form.account_number == "admin" && that.form.password == "123456"){
             				that.$message.success('登录成功');
+            				that.$router.push({path:"main_page"})
             			}else{
             				that.$message.error('登录账号或者密码填写错误');
             			}
           			} else {
             			console.log('error submit!!');
-            		return false;
+            			return false;
          			}
         		});
 			}

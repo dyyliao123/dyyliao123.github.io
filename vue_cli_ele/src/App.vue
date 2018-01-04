@@ -20,4 +20,24 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.flex_star{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.flex_between{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.flex_around{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.flex_end{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
 </style>
