@@ -90,6 +90,7 @@
 						icon : setting,
 						childer:[
 							{name : "企业资料",link:'company_info'},
+							{name : "添加权限",link:'add_group'},
 						]
 					},
 				],

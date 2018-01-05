@@ -17,6 +17,7 @@ import pageView from '@/components/data/page_view'
 import myMoney from '@/components/money/my_money'
 /*设置*/
 import CompanyInfo from '@/components/setting/company_info'
+import addGroup from '@/components/setting/add_group'
 
 Vue.use(Router)
 
@@ -26,7 +27,8 @@ export default new Router({
     	{	path: '/login',name: 'login',component: login	},					//登录页面
 			{	path: '/main_page',name: '后台管理',component: MainPage,children:[
 				{	path:'/setting',name:'设置',component:Content,children:[
-	    		{	path:'/company_info',name:'企业资料',component:CompanyInfo	}    //企业资料
+	    		{	path:'/company_info',name:'企业资料',component:CompanyInfo	} ,   //企业资料
+	    		{	path:'/add_group',name:'添加权限',component:addGroup	}    //权限添加
 	    	]},
 	    	{	path:'/index',name:'首页',component:Content,children:[
 	    		{	path:'/index',name:'概况',component:Index	}    //首页概况
