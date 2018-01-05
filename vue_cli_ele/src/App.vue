@@ -40,4 +40,7 @@ export default {
 	justify-content: flex-end;
 	align-items: center;
 }
+/*分页样式重写*/
+	.el-pagination{margin: 20px 0; text-align: right; margin-right: 100px;}
+	.el-pagination .el-pager .active{background: linear-gradient(to right, #23F9A2 , #00DEFD); color: white; border-radius: 3px;}
 </style>
