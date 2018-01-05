@@ -5,7 +5,14 @@
 			<img src="../../static/images/data_image_png;base….png" alt="" width="149"/>
 			<div class="flex_between">
 				<span>后台管理平台</span>
-				<span>admin</span>
+				<el-dropdown trigger="click" style="text-align: right;">
+					<span class="el-dropdown-link" style="cursor: pointer;">
+				        admin<i class="el-icon-arrow-down el-icon--right"></i>
+				    </span>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item @click.native="exit">退出</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
 			</div>
 		</div>
 		<div class="flex_star slide_middle">
@@ -39,6 +46,9 @@
 			<!--主体部分-->
 			<div class="main_content">
 				<div class="content_page">
+					<!--面包屑-->
+					<bread_crumb></bread_crumb>
+					<!--<bread_crumb :bread_data="bread_data"></bread_crumb>-->
 					<router-view></router-view>
 				</div>
 			</div>
@@ -53,6 +63,8 @@
 	import shuju from '../../static/images/13@2x.png'
 	import zichan from '../../static/images/15@2x.png'
 	import setting from '../../static/images/18@2x.png'
+	
+	import bread_crumb from './breadCrumb.vue'
 	export default({
 		name : "main_page" ,
 		data(){
@@ -74,48 +86,42 @@
 						]
 					},
 					{
-						header_title : "订单",
-						icon : order,
-						childer:[
-							{name : "订单列表",link:'order_list'},
-						]
-					},
-					{
-						header_title : "数据",
-						icon : shuju,
-						childer:[
-							{name : "访问量",link:'page_view'},
-						]
-					},
-					{
-						header_title : "资产",
-						icon : zichan,
-						childer:[
-							{name : "我的钱款",link:'my_money'},
-						]
-					},
-					{
 						header_title : "设置",
 						icon : setting,
 						childer:[
 							{name : "企业资料",link:'company_info'},
 						]
 					},
-				]
+				],
+//				bread_data : ""   ,  //路由自定义名字
 			}
 		},
 		created(){
 			var that = this ;
 			that.nav_active = that.$route.matched[that.$route.matched.length-1].path.slice(1);
 		},
+		components:{ bread_crumb },
 		methods:{
+			//退出
+			exit() {
+				let that = this;
+				this.$confirm('确定退出?', '提示', {
+					type: 'warning'
+				}).then(() => {
+					that.$router.push({path:"/login"})
+				}).catch(() => {});
+			},
 			handleOpen(key, keyPath) {
         		console.log(key, keyPath);
       		},
       		handleClose(key, keyPath) {
         		console.log(key, keyPath);
       		}
-		}
+		},
+//		watch:{'$route' (to,from){
+//				console.log(to,from)
+//			}
+//		}
 	})
 </script>
 
@@ -138,6 +144,12 @@
 	.el-menu{
 		border-right: solid 1px #343D4E;
 	}
+	.el-breadcrumb{
+		margin: 30px 0 20px 20px;
+	}
+	.popper__arrow{
+		left: 26px!important;
+	}
 </style>
 <style scoped="scoped" lang="less">
 	.main_page{
@@ -151,6 +163,8 @@
 					font-size: 16px;
 					color: #fff;
 					padding: 0 30px;
+					display: inline-block;
+					width: 150px;
 				}
 			}
 		}

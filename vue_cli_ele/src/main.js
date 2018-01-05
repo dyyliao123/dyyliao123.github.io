@@ -11,6 +11,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(ElementUI)
 
+// 引入UEditor富文本
+import '../static/ueditorPhp-1.4.3.3/ueditor.config.js'
+import '../static/ueditorPhp-1.4.3.3/ueditor.all.min.js'
+import '../static/ueditorPhp-1.4.3.3/lang/zh-cn/zh-cn.js'
+import '../static/ueditorPhp-1.4.3.3/ueditor.parse.min.js'
 
 
 Vue.config.productionTip = false
