@@ -13,7 +13,7 @@
 			<!--报名标题-->
 			<div class="sign_up_header flex_between">
 				<div>总裁商业思维</div>
-				<div>￥380000</div>
+				<div>￥{{all_price}}</div>
 			</div>
 			<!--重要通知-->
 			<div class="important_info">
@@ -59,8 +59,9 @@
 							<span>手机号</span>
 						</div>
 						<div class="flex_between right_content">
-							<input type="text" placeholder="请输入手机号码"/>
-							<span>发送验证码</span>
+							<input type="number" placeholder="请输入手机号码" v-model="phone_num"/>
+							<span @click="sendCode" v-if="!isShow_timeTitle">发送验证码</span>
+							<span v-else>{{count}}s</span>
 						</div>
 					</div>
 					<div class="flex_star middle_content">
@@ -69,66 +70,80 @@
 							<span>验证码</span>
 						</div>
 						<div class="flex_between right_content">
-							<input type="text" placeholder="请输入验证码"/>
+							<input type="number" placeholder="请输入验证码"/>
 						</div>
 					</div>
 				</div>
 				
-				<div class="sign_up_content_middle">
-					<div class="flex_star middle_content">
+				<div class="sign_up_content_middle" v-for="(items,indexs) in books">
+					<div class="flex_star middle_content" v-for="(item,index) in items" v-if="item.data_type == 'name'">
 						<div class="flex_star left_content">
 							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
 							<span>姓名</span>
 						</div>
 						<div class="flex_between right_content">
-							<input type="text" placeholder="请输入姓名"/>
+							<input type="text" placeholder="请输入姓名" v-model="items[index].name"/>
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20" v-if="books.length > 1 && indexs > 0" @click="delete1(indexs)"/>
 						</div>
 					</div>
-					<div class="flex_star middle_content">
+					<div class="flex_star middle_content" v-for="(item,index) in items" v-if="items[index].data_type == 'papers'">
 						<div class="flex_star left_content">
 							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
 							<span>证件类别</span>
 						</div>
 						<div class="flex_between right_content">
-							<select v-model="papersType">
+							<select v-model="items[index].name">
 								<option v-for="item in papersList" :value="item.value">{{item.title}}</option>
 							</select>
 							<img src="../static/image/rigth.png" alt="" width="15"/>
 						</div>
 					</div>
-					<div class="flex_star middle_content">
+					<div class="flex_star middle_content" v-for="(item,index) in items" v-if="item.data_type == 'papers_num'">
 						<div class="flex_star left_content">
 							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
 							<span>证件号码</span>
 						</div>
 						<div class="flex_between right_content">
-							<input type="text" placeholder="请输入证件号码"  style="width: 100%;"/>
+							<input type="text" placeholder="请输入证件号码"  v-model="items[index].name" style="width: 100%;"/>
 						</div>
 					</div>
-					<div class="flex_star middle_content">
+					<div class="flex_star middle_content" v-for="(item,index) in items" v-if="item.data_type == 'area'">
 						<div class="flex_star left_content">
 							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
 							<span>国家/地区</span>
 						</div>
 						<div class="flex_between right_content">
-							<select v-model="area_phoneType">
+							<select v-model="items[index].name">
 								<option v-for="item in phoneTypeList" :value="item.value">{{item.title}}</option>
 							</select>
 							<img src="../static/image/rigth.png" alt="" width="15"/>
 						</div>
 					</div>
-					<div class="flex_star middle_content">
+					<div class="flex_star middle_content" v-for="(item,index) in items"  v-if="item.data_type == 'phone'">
 						<div class="flex_star left_content">
 							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
 							<span>手机号</span>
 						</div>
 						<div class="flex_between right_content">
-							<input type="text" placeholder="请输入手机号"/>
+							<input type="number" placeholder="请输入手机号" v-model="items[index].name"/>
 						</div>
 					</div>
 				</div>
+				<!--增加报名人员模块-->
+				<div class="sign_up_content_middle">
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content" style="width: 50%;">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>增加报名人员</span>
+						</div>
+						<div class="flex_end right_content" style="width: 50%;">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20" @click="add_form"/>
+						</div>
+					</div>
+				</div>
+				<!--提交按钮区域-->
+				<div class="gitCommit" @click="git_commit">提交</div>
 			</div>
-			
 		</div>
 	</body>
 	<script src="../static/js/zepto.min.js" type="text/javascript"></script>
