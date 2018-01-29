@@ -1,0 +1,25 @@
+/*vue消除印花*/
+[v-cloak]{display: none;}
+/* css初始化 */
+*{-webkit-tap-highlight-color:transparent;}
+html,body,a,i,p,ul,li,ol,h1,h2,h3,h4,h5,h6,img,form,input,select,button,textarea,dl,dt,dd,header,footer,section,article,nav{margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{min-height:100%;font:normal normal normal 14px/1.5 'Microsoft YaHei',Arial,Helvetica,sans-serif;color:#333;-webkit-text-size-adjust:100%;}
+a{color:#666;text-decoration:none;outline:none;}
+a:hover{text-decoration:none;}
+i{display:block;font-style:normal;}
+ul,ol{list-style:none;}
+embed,iframe{width:100%;}
+select,input,button,textarea{outline:none;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif;resize:none;-webkit-appearance:none;}
+input:-webkit-autofill{-webkit-box-shadow: 0 0 0px 1000px white inset;}
+
+/*一致样式*/
+.relative{position: relative;}
+.absolute{position: absolute;}
+.fixed{position: fixed;}
+.flex_around{display: flex; justify-content: space-around; align-items: center;}
+.flex_between{display: flex; justify-content: space-between; align-items: center;}
+.flex_star {display: flex; justify-content: flex-start; align-items: center;}
+.flex_center{display: flex; justify-content: center; align-items: center;}
+.flex_end{display: flex; justify-content: flex-end; align-items: center;}
+.vertical_m{display: flex;align-items: center;}

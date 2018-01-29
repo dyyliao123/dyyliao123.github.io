@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>报名申请</title>
+		<link rel="stylesheet" href="../static/css/base_web.css"/>
+		<link rel="stylesheet" href="../static/css/weui.min.css" type="text/css"/>
+		<link rel="stylesheet" href="../static/css/jquery-weui.css" type="text/css"/>
+		<link rel="stylesheet" href="../css/sign_up.css" type="text/css"/>
+	</head>
+	<body>
+		<div id="sign_up" v-cloak>
+			<!--报名标题-->
+			<div class="sign_up_header flex_between">
+				<div>总裁商业思维</div>
+				<div>￥380000</div>
+			</div>
+			<!--重要通知-->
+			<div class="important_info">
+				<div class="info_title">重要通知</div>
+				<div class="info_message">
+					<div class="info_intro1" v-if="isShowWords">丰功硕德见风使舵积分还是黑色的空间发挥水电开发还是短发还是快点回复积分多少快捷方式看见对方接受的东风科技适当放宽江户时代开发计划是的教师的废旧塑料款到即发离开世界的发的时刻缴费基数绿壳蛋鸡烦死了款到即发</div>
+					<div class="info_intro2" v-else>
+						丰功硕德见风使舵积分还是黑色的空间发挥水电开发还是短发还是快点回复积分多少快捷方式看见对方接受的东风科技适当放宽江户时代开发计划是的教师的废旧塑料款到即发离开世界的发的时刻缴费基数绿壳蛋鸡烦死了款到即发交电话费几乎都是国防建设的高不就行隧道股份精神的回归发布时间风格就是地方很近很多事
+						<div class="company_name">汇搜科技股份有限公司</div>
+						<div class="write_date">2017年10月25日</div>
+					</div>
+					<div @click="showWords" class="info_img">
+						<img src="../static/image/xiala.png" alt=""  v-if="isShowWords"/>
+						<img src="../static/image/shangla.png" alt="" v-else/>
+					</div>
+				</div>
+			</div>
+			<!--报名内容-->
+			<div class="sign_up_content">
+				<div class="sign_up_content_header">
+					<span class="flex_star" @click="showIcon">
+						<i class="weui-icon-success" v-if="isShowIcon"></i>
+						<i class="weui-icon-circle" v-else></i>
+						<span>我已阅读并同意</span>
+					</span>
+				</div>
+				<div class="sign_up_content_middle">
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>国家/地区</span>
+						</div>
+						<div class="flex_between right_content">
+							<select v-model="area_phoneType">
+								<option v-for="item in phoneTypeList" :value="item.value">{{item.title}}</option>
+							</select>
+							<img src="../static/image/rigth.png" alt="" width="15"/>
+						</div>
+					</div>
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>手机号</span>
+						</div>
+						<div class="flex_between right_content">
+							<input type="text" placeholder="请输入手机号码"/>
+							<span>发送验证码</span>
+						</div>
+					</div>
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>验证码</span>
+						</div>
+						<div class="flex_between right_content">
+							<input type="text" placeholder="请输入验证码"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="sign_up_content_middle">
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>姓名</span>
+						</div>
+						<div class="flex_between right_content">
+							<input type="text" placeholder="请输入姓名"/>
+						</div>
+					</div>
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>证件类别</span>
+						</div>
+						<div class="flex_between right_content">
+							<select v-model="papersType">
+								<option v-for="item in phoneTypeList" :value="item.value">{{item.title}}</option>
+							</select>
+							<img src="../static/image/rigth.png" alt="" width="15"/>
+						</div>
+					</div>
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>证件号码</span>
+						</div>
+						<div class="flex_between right_content">
+							<input type="text" placeholder="请输入证件号码"  style="width: 100%;"/>
+						</div>
+					</div>
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>国家/地区</span>
+						</div>
+						<div class="flex_between right_content">
+							<select v-model="area_phoneType">
+								<option v-for="item in phoneTypeList" :value="item.value">{{item.title}}</option>
+							</select>
+							<img src="../static/image/rigth.png" alt="" width="15"/>
+						</div>
+					</div>
+					<div class="flex_star middle_content">
+						<div class="flex_star left_content">
+							<img src="../static/image/mobilephone@2x.png" alt="" width="20"/>
+							<span>手机号</span>
+						</div>
+						<div class="flex_between right_content">
+							<input type="text" placeholder="请输入手机号"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+	<script src="../static/js/zepto.min.js" type="text/javascript"></script>
+	<script src="../static/js/jquery-weui.min.js" type="text/javascript"></script>
+	<script src="../static/js/vue.min.js" type="text/javascript"></script>
+	<script src="../js/sign_up.js" type="text/javascript"></script>
+</html>

@@ -1,0 +1,90 @@
+#sign_up{
+	background: #fff;
+}
+/*标题样式*/
+.sign_up_header{
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	padding: 0 15px;
+	background: #1AAD19;
+	color: #EFF8EF;
+	letter-spacing:1px;
+	font-family: cursive;
+}
+/*重要信息样式*/
+.important_info{
+	margin: 10px 15px;
+	background: #eee;
+	padding: 5px 5px 5px 10px;
+}
+.important_info .info_title{
+	color: #FF8501;
+	letter-spacing: 1px;
+}
+.important_info .info_intro1,.info_intro2{
+	text-indent: 2em;
+	font-size: 13px;
+	letter-spacing: 1px;
+	padding: 5px 0;
+}
+.important_info .info_intro1{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+.important_info .info_intro2 .company_name,.write_date{
+	font-size: 14px;
+	color: #FF8501;
+	text-align: right;
+}
+.important_info .info_message .info_img{
+	text-align: center;
+}
+.important_info .info_message .info_img img{
+	height: 15px;
+}
+/*报名内容样式*/
+.sign_up_content .sign_up_content_header{
+	padding: 10px 15px;
+}
+.sign_up_content .middle_content{
+	padding: 5px 15px;
+	border-bottom: 1px solid #f5f5f5;
+}
+.sign_up_content .sign_up_content_middle{
+	border-bottom: 10px solid #f3f3f3;
+}
+.sign_up_content .sign_up_content_middle .left_content{
+	width: 36%;
+}
+.sign_up_content .sign_up_content_middle .left_content img{
+	margin-right: 5px;
+}
+.sign_up_content .sign_up_content_middle .right_content{
+	width: 64%;
+}
+.sign_up_content .sign_up_content_middle .right_content span{
+	font-size: 13px;
+	height: 30px;
+	background: #FF8501;
+	color: #EFF8EF;
+	line-height: 30px;
+	padding: 0 5px;
+	text-align: center;
+	border-radius: 5px;
+}
+.sign_up_content .sign_up_content_middle .right_content select{
+	border: none;
+	outline: none;
+	width: 85%;
+	font-size: 16px;
+}
+.sign_up_content .sign_up_content_middle .right_content input{
+	border: none;
+	outline: none;
+	width:70%;
+	font-size: 16px;
+	margin-right: 5px;
+}
