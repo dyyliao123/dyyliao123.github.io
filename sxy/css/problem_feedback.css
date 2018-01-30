@@ -7,6 +7,7 @@ html,body{
 	background: #fff;
 }
 .textarea_desc textarea{
+	display: block;
 	border: none;
 	text-indent: 20px;
 	padding: 5px 5px;
@@ -30,6 +31,7 @@ html,body{
 }
 .contact_infor div:nth-child(1){
 	border-bottom: 1px solid #e5e5e5;
+	height: 39px;
 }
 .contact_infor div:nth-child(2) input{
 	border: none;
