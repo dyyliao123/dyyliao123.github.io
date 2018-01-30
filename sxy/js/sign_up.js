@@ -40,9 +40,11 @@ var data = new Vue({
 			{data_type : "area" , name : "0" },
 			{data_type : "phone" , name : "" },
 		],
+		templateData	:	null	,	//处理添加的表单不会影响其他表单里面的值
 	},
 	created:function(){
-		
+		var that = this ;
+		that.templateData = JSON.stringify(that.dataList)   //处理添加的表单不会影响其他表单里面的值
 	},
 	methods:{
 		/*是否展示隐藏文字*/
@@ -58,7 +60,8 @@ var data = new Vue({
 		/*增加一个form模块*/
 		add_form(){
 			var that = this ;
-			that.books.push(that.dataList)
+			var templateData = JSON.parse(that.templateData)   //处理添加的表单不会影响其他表单里面的值
+			that.books.push(templateData)
 			console.log(that.books)
 			that.all_price = that.course_money*(that.books.length)
 		},
