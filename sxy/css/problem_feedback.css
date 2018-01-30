@@ -8,7 +8,7 @@ html,body{
 }
 .textarea_desc textarea{
 	border: none;
-	text-indent: 1em;
+	text-indent: 20px;
 	padding: 5px 5px;
 	width: calc(100% - 10px);
 	font-size: 15px;
