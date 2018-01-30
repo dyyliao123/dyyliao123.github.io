@@ -1,0 +1,66 @@
+html,body{
+	background: #f5f5f5;
+}
+/*文本框样式*/
+.textarea_desc{
+	margin:10px 0;
+	background: #fff;
+}
+.textarea_desc textarea{
+	border: none;
+	text-indent: 1em;
+	padding: 5px 5px;
+	width: calc(100% - 10px);
+	font-size: 15px;
+	color: #666;
+}
+.textarea_desc p{
+	text-align: right;
+	padding: 10px 10px;
+	color: #999;
+}
+/*联系方式样式*/
+.contact_infor{
+	background: #fff;
+}
+.contact_infor div{
+	margin: 0 20px;
+	height: 40px;
+	line-height: 40px;
+}
+.contact_infor div:nth-child(1){
+	border-bottom: 1px solid #e5e5e5;
+}
+.contact_infor div:nth-child(2) input{
+	border: none;
+	outline: none;
+	height: 100%;
+	width: 100%;
+	color: #666;
+	font-size: 15px;
+}
+/*提交按钮样式*/
+.git_commit{
+	margin: 30px 20px;
+	text-align: center;
+	height: 40px;
+	color: #FFFBFA;
+	font-size: 16px;
+	line-height: 40px;
+	border-radius: 15px/50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

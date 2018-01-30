@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>问题反馈</title>
+		<link rel="stylesheet" href="../static/css/base_web.css"/>
+		<link rel="stylesheet" href="../css/problem_feedback.css"/>
+	</head>
+	<body>
+		<div class="problem_feedback" v-cloak>
+			<!--问题反馈文本框-->
+			<div class="textarea_desc">
+				<textarea v-model="problem_desc" rows="10" cols="" placeholder="写下您的意见，我们将用心聆听，做的更好！" maxlength="200"  @input="descInput"></textarea>
+				<p>{{words_num}}/200</p>
+			</div>
+			<!--联系方式-->
+			<div class="contact_infor">
+				<div>联系方式（电话/邮箱/QQ选填）</div>
+				<div>
+					<input type="text" placeholder="请输入您的联系方式" v-model="link_way"/>
+				</div>
+			</div>
+			<!--提交按钮-->
+			<div class="git_commit grad1" @click="git_commit">提交申请</div>
+		</div>
+	</body>
+	<script src="../static/js/vue.min.js" type="text/javascript"></script>
+	<script src="../js/problem_feedback.js" type="text/javascript"></script>
+</html>

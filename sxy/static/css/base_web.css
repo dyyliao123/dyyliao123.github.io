@@ -27,7 +27,6 @@ input:-webkit-autofill{-webkit-box-shadow: 0 0 0px 1000px white inset;}
 
 /*背景渐变色*/
 .grad1 {
-    height: 200px;
     background: -webkit-linear-gradient(left, #FF9648 , #FF302D); /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(right, #FF9648, #FF302D); /* Opera 11.1 - 12.0 */
     background: -moz-linear-gradient(right, #FF9648, #FF302D); /* Firefox 3.6 - 15 */
