@@ -35,6 +35,21 @@
 					</el-form-item>
 				</el-col>
 			</el-row>
+			<!--公司地址-->
+			<el-row>
+				<el-col :span="8">
+					<el-form-item label="公司地址" prop="selectedOptions">
+						<div class="block">
+					  		<el-cascader
+					    		:options="options"
+					    		v-model="formCompany.selectedOptions"
+					    		:props="props"
+					    		@change="handleChange">
+					  		</el-cascader>
+						</div>
+					</el-form-item>
+				</el-col>
+			</el-row>
 			<el-row>
 				<el-col :span="8">
 		  			<el-form-item label="企业图片" prop="imageUrl">
@@ -58,6 +73,14 @@
 					<UE_editor :defaultMsg='formCompany.content' :config="config" ref="ue"></UE_editor>
 				</el-col>
 			</el-row>
+			<!--企业地图-->
+			<el-row style="margin: 15px 0;">
+				<el-col :span="12" class="flex_star">
+		  			<el-form-item label="企业地图">
+					</el-form-item>
+					<MAPs></MAPs>
+				</el-col>
+			</el-row>
 			<el-row class="complete_btn">
 				<el-col :span="5">
 					<el-button type="primary" @click="successBtn('formCompany')">完成</el-button>
@@ -69,6 +92,7 @@
 
 <script>
 	import UE_editor from '@/components/editor.vue';
+	import MAPs from '@/components/map.vue';
 	export default({
 		name : "company_info" ,
 		data(){
@@ -79,7 +103,8 @@
 		          	company_type	:	''	,
 		          	content			:   ''	,
 		          	imageUrl 		: 	''	,
-		          	time_val		: 	''
+		          	time_val		: 	''	,
+		        	selectedOptions : 	[]	,		//默认地址数据
 		        },
 		        rules: {
           			company_name: [
@@ -96,6 +121,9 @@
           			],
           			time_val:[
           				{ required: true, message: '请选择时间', trigger: 'blur' }
+          			],
+          			selectedOptions:[
+          				{ required: true, message: '请选择公司地址', trigger: 'change' }
           			]
           		},
 		        config: {
@@ -107,9 +135,19 @@
 		          	elementPathEnabled : false,		//是否启用路径
 		          	zIndex             : 9,			//层级
 		        },
+		        options			: []		,		//城市三级联动数据
+		        props: {
+        			label:"name",
+          			value: 'regions_id',
+          			children: 'child'
+        		},
 			}
 		},
-		components: {UE_editor},
+		components: { UE_editor , MAPs},
+		created(){
+			var that = this ;
+			that.getRegions()
+		},
 		methods:{
 			handleAvatarSuccess(res, file) {
         		this.formCompany.imageUrl = URL.createObjectURL(file.raw);
@@ -125,6 +163,24 @@
 		        }
 		        return isImgType && isLt2M;
 		    },
+		    //三级联动数据
+		    getRegions(){
+		    	var that = this ;
+		    	that.$axios.get(process.env.BASE_URL+"/miniprogram/activity/getRegions").then((res)=>{
+					console.log(res)
+					if(res.data.code == 40000){
+						that.options = res.data.list.regions
+					}else{
+						that.$message.error(res.data.hint);
+					}
+				})
+		    },
+		    //地址三级联动
+      		handleChange(value) {
+      			var that = this ;
+        		console.log(value)
+        		that.formCompany.selectedOptions = value 
+      		},
 		    successBtn(formName){
 		    	this.$refs[formName].validate((valid) => {
           			if (valid) {
@@ -167,6 +223,9 @@
   }
   .el-textarea__inner{
   	resize: none!important;
+  }
+  .company_info .block{
+  	text-align: left;
   }
 </style>
 <style scoped="scoped" lang="less">
