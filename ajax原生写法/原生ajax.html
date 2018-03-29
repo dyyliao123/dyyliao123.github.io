@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>原生ajax</title>
+</head>
+<body>
+	<!--<script>
+		/*GET方法*/
+		//创建异步对象
+		var xhr_get = new XMLHttpRequest();
+		console.log(xhr_get);
+		//设置请求的URL参数,参数一是请求类型,参数二是请求的URL,可以不带参数
+        xhr_get.open('get','./data.json?id=1');
+		//发送请求
+        xhr_get.send();
+		//注册onreadystatechange事件状态改变时就会被调用
+        xhr_get.onreadystatechange = function(){
+            if(xhr_get.readyState == 4 && xhr_get.status == 200){
+                console.log(xhr_get.responseText)
+            }
+		}
+	</script>-->
+	<script>
+		/*POST方法*/
+		var xhr_post = new XMLHttpRequest() ;
+		//POST请求设置的请求头部
+		xhr_post.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xhr_post.open("post","./data.json");
+		//POST请求参数都是放在send里面
+		xhr_post.send("id=1");
+		xhr_post.onreadystatechange = function(){
+		    if(xhr_post.status == 200 && xhr_post.readyState  == 4){
+		        console.log(xhr_post.responseText)
+			}
+		}
+	</script>
+</body>
+</html>
