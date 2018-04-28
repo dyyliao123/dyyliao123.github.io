@@ -1,1 +1,28 @@
-<!DOCTYPE html><html><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>首页</title><link href=/dist/static/css/index.786404db9d6b95075c6b7992d3a6e17c.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/dist/static/js/manifest.13d5d2a920afd08ec9a0.js></script><script type=text/javascript src=/dist/static/js/vendor.813a6b3efd0664521243.js></script><script type=text/javascript src=/dist/static/js/index.e8fa4853d5f63b0de2fc.js></script></body></html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>情淮微商城</title><link href=/dist/static/css/app.920166bbcc3f55ac9d3b10f6b24699bc.css rel=stylesheet></head><body><div id=app></div><script>/* 自适应布局 */
+        window.onresize = function dpr() {
+            var d = document;
+            // psd 设计稿宽度
+            var desWidth = 750;
+            var _dpr = (1 / window.devicePixelRatio);
+            _dpr = 1;
+            // 414为iPhone6p的设备独立像素
+            var _MaxWidth = 414 * window.devicePixelRatio;
+            var userAgent = navigator.userAgent;
+            // 设备宽度
+            var widthStr = 'device-width';
+            // 是否移动设备
+            var isMobile = true;
+            var iWidth = 0;
+            var _html = d.getElementsByTagName('html')[0];
+            // 非移动设备
+            if (userAgent.toLowerCase().indexOf('iphone') == -1 && userAgent.toLowerCase().indexOf('android') == -1) {
+                isMobile = false; //iWidth = _MaxWidth;
+                widthStr = iWidth + 'px';
+            }
+            d.querySelector('[name="viewport"]').setAttribute('content', 'width=' + widthStr + ' , initial-scale=' + _dpr + ', maximum-scale=' + _dpr + ', minimum-scale=' + _dpr + ', user-scalable=no');
+            iWidth = Math.min(d.documentElement.clientWidth, window.innerWidth);
+            if (!isMobile) iWidth = _MaxWidth;
+            _html.style.fontSize = (((100 * iWidth) / desWidth)) + 'px';
+            _html.dataset.dpr = 1; // window.devicePixelRatio;
+        };
+        window.onresize();</script><script type=text/javascript src=/dist/static/js/manifest.4f396a50b97cf01e7769.js></script><script type=text/javascript src=/dist/static/js/vendor.860b0de5c32c38a3e566.js></script><script type=text/javascript src=/dist/static/js/app.34d767d62b6dec2c5a73.js></script></body></html>
